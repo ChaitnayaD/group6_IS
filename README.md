@@ -10,4 +10,4 @@
 ## Problem Statement:
 ### Developing an android application for visualizing the temperature breach detection of the reefer container.
 
-#### Midsem Submission
+#### [Midsem Submission](https://drive.google.com/drive/folders/1RZaIBeT6Xjt-M57-hoNRyXcbP9MxMetj)
