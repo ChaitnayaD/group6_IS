@@ -1,5 +1,4 @@
-# group6_IS
-# IS-Project-
+# IS-Project
 # Information Systems Project (IM39204)
 ## Department of Industrial and Systems Engineering
 ## Mobile App Development for Temperature Breach Detection for Reefer Container
