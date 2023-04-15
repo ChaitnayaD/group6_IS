@@ -5,7 +5,7 @@ import re
 
 app = Flask(__name__)
   
-app.secret_key = 'xyzsdfg'
+app.secret_key = 'bvvvvvvv'
   
 app.config['MYSQL_HOST'] = '10.29.8.22'
 app.config['MYSQL_USER'] = 'chaitanya'
