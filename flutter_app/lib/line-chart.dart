@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:intl/intl.dart';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'datum.dart';
 import 'data_loader.dart';
@@ -20,7 +18,7 @@ class _StockChartExampleState extends State<StockChartExample> {
     const Color(0xFF03A9F4),
   ];
   final int _divider = 30;
-  final int _leftLabelsCount = 10;
+  final int _leftLabelsCount = 15;
 
   List<FlSpot> _values = const [];
 
@@ -63,13 +61,16 @@ class _StockChartExampleState extends State<StockChartExample> {
 
   LineChartData _mainData() {
     return LineChartData(
+      backgroundColor: Colors.white,
+
       gridData: _gridData(),
       titlesData: FlTitlesData(
         bottomTitles: _bottomTitles(),
         leftTitles: _leftTitles(),
+
       ),
       borderData: FlBorderData(
-        border: Border.all(color: Colors.black, width: 1),
+        border: Border.all(color: Colors.grey.shade400, width: 1),
       ),
       minX: _minX,
       maxX: _maxX,
@@ -96,18 +97,23 @@ class _StockChartExampleState extends State<StockChartExample> {
         gradientFrom: const Offset(0.5, 0),
         gradientTo: const Offset(0.5, 1),
       ),
+
+
+
+
     );
   }
 
   SideTitles _leftTitles() {
     return SideTitles(
       showTitles: true,
-      textStyle: TextStyle(
+      textStyle: const TextStyle(
         color: Colors.black,
         fontSize: 8,
+        fontWeight: FontWeight.bold,
       ),
       getTitles: (value) =>
-          NumberFormat.compactCurrency(symbol: '\C').format(value),
+          NumberFormat.compactCurrency(symbol: '').format(value),
       reservedSize: 28,
       margin: 12,
       interval: _leftTitlesInterval,
@@ -117,14 +123,16 @@ class _StockChartExampleState extends State<StockChartExample> {
   SideTitles _bottomTitles() {
     return SideTitles(
       showTitles: true,
+
       textStyle: const TextStyle(
         color: Colors.black,
         fontSize: 8,
+        fontWeight: FontWeight.bold,
       ),
       getTitles: (value) {
         final DateTime date =
         DateTime.fromMillisecondsSinceEpoch(value.toInt());
-        return DateFormat.EEEE().format(date);
+        return DateFormat.MEd().format(date);
       },
       margin: 8,
       interval: (_maxX - _minX) / 6,

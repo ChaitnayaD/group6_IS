@@ -1,57 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:himanshuproject/line-chart2.dart';
 
 import 'line-chart.dart';
-
+import 'drop1.dart';
+import 'drop2.dart';
 
 // void main() => runApp(MyApp());
-const List<String> list = <String>['S1temperature', 'S1humidity', 'ethyleneppm1', 'ethyleneppm2','co2ppm'];
-class DropdownButtonExample extends StatefulWidget {
-  const DropdownButtonExample({super.key});
-
-  @override
-  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
-}
-
-class _DropdownButtonExampleState extends State<DropdownButtonExample> {
-  String dropdownValue = list.first;
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      // icon: const Icon(Icons.arrow_downward),
-      elevation: 16,
-      style: const TextStyle(color: Colors.black),
-      alignment: Alignment.center,
-      underline: Container(
-        height: 2,
-        color: Colors.black,
-      ),
-      onChanged: (String? value) {
-        // This is called when the user selects an item.
-        setState(() {
-          dropdownValue = value!;
-        });
-      },
-      items: list.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-          alignment: Alignment.center,
-        );
-      }).toList(),
-    );
-  }
-}
-
-
-
-
-
-
-
-
+String drop='2';
 class MyAnalysis extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -79,16 +36,22 @@ class HomePage extends StatelessWidget {
       //),
       backgroundColor: Colors.white,
       body: ListView( padding: const EdgeInsets.all(15),
-          children:const <Widget>[
+          children: <Widget>[
             Text(selectionColor: Colors.black,textAlign: TextAlign.center,"Select Property"),
             // StockChartExample(),
-            DropdownButtonExample(),
-            Text(selectionColor: Colors.black,textAlign: TextAlign.center,"Select Node"),
-            DropdownButtonExample(),
+            DropdownButtonExample1(),
+            Text(selectionColor: Colors.black,textAlign: TextAlign.center,"Select Timeline"),
+            DropdownButtonExample2(),
             // Text(selectionColor: Colors.black,textAlign: TextAlign.center,"jjj"),
-             StockChartExample(),
+            SizedBox(height: 20),
+            if(dropdownValue1 == 'S1temperature')
+              StockChartExample2(),
 
-          ]
+
+
+
+
+          ],
 
 
       ),

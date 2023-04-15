@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:himanshuproject/line-chart2.dart';
+import 'package:himanshuproject/line-chart3.dart';
 
 import 'line-chart.dart';
 
@@ -6,6 +8,7 @@ import 'line-chart.dart';
 // void main() => runApp(MyApp());
 
 class MyHome extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,12 +37,12 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: ListView( padding: const EdgeInsets.all(15),
           children:const <Widget>[
-            Text(selectionColor: Colors.black,textAlign: TextAlign.center,"Temperature"),
+            Text(selectionColor: Colors.black,textAlign: TextAlign.center,"Temperature(°C)"),
             StockChartExample(),
-            Text(selectionColor: Colors.black,textAlign: TextAlign.center,"Humidity"),
-            StockChartExample(),
-            Text(selectionColor: Colors.black,textAlign: TextAlign.center,"jjj"),
-            StockChartExample(),
+            Text(selectionColor: Colors.black,textAlign: TextAlign.center,"Humidity(%)"),
+            StockChartExample2(),
+            Text(selectionColor: Colors.black,textAlign: TextAlign.center,"co2(ppm)"),
+            StockChartExample3(),
 
           ]
 

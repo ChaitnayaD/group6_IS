@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:himanshuproject/analysis.dart';
+import 'package:himanshuproject/breach.dart';
 import 'home.dart';
+import 'breach.dart';
 //void main() {
   //runApp(const MyApp());
 //}
 
 class MyDashboard extends StatelessWidget {
   const MyDashboard({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +43,12 @@ class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
 
   final TextEditingController _searchText = TextEditingController();
-
+  NotificationServices notificationServices=NotificationServices();
+  @override
+  void initState(){
+    notificationServices.intialiseNotifications();
+    //super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +56,7 @@ class Home extends StatelessWidget {
       body: Center(
         child: TabBarView(
           children: [
-            _tabBarViewItem(Icons.home, 'Home'),
+            _tabBarViewItem(Icons.home, 'Temperature Breach Detection '),
             _tabBarViewItem_graph(Icons.auto_graph_sharp, 'Graphs'),
             _tabBarViewItem(Icons.notifications, 'Notifications'),
             _tabBarViewItem_analysis(Icons.analytics_outlined, 'Analysis'),
@@ -100,6 +108,10 @@ class Home extends StatelessWidget {
         //   'assets/logo.png',
         //   scale: 75,
         // ),
+        // ElevatedButton(onPressed:(){
+        //   notificationServices.sendNotification('Breach Detected', 'breach');
+        // },
+
         const CircleAvatar(
           radius: 25,
           backgroundImage: AssetImage('assets/logo.png'),
@@ -151,11 +163,11 @@ class Home extends StatelessWidget {
       labelColor: Colors.white,
       indicatorColor: Colors.white,
       unselectedLabelColor: Colors.teal.shade800,
-      tabs: const [
+      tabs:  [
         Tab(
           iconMargin: EdgeInsets.all(0),
           icon: Icon(Icons.home),
-          text: 'Home',
+          text: 'Temperature Breach Detection of Reefer Container',
         ),
         Tab(
           iconMargin: EdgeInsets.all(0),
@@ -166,28 +178,34 @@ class Home extends StatelessWidget {
           iconMargin: EdgeInsets.all(0),
           icon: Icon(Icons.notifications),
           text: 'Notifications',
+          
+          
         ),
         Tab(
           iconMargin: EdgeInsets.all(0),
           icon: Icon(Icons.analytics_outlined),
           text: 'Analysis',
         ),
+
       ],
     );
   }
 
   Widget _tabBarViewItem(IconData icon, String name) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Icon(
           icon,
           size: 100,
+          
         ),
-        // Text(
-        //   name,
-        //   style: const TextStyle(fontSize: 40),
-        // ),
+       Text(
+         name,
+
+        style: const TextStyle(fontSize: 25),
+        ),
       ],
     );
   }

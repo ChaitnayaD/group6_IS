@@ -4,8 +4,10 @@ import 'login.dart';
 import 'register.dart';
 import 'dashboard.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'breach.dart';
 void main() {
   runApp(MaterialApp(
+
     debugShowCheckedModeBanner: false,
     home: MyDashboard(),
     routes: {
@@ -15,5 +17,6 @@ void main() {
       'dashboard':(context)=>MyDashboard(),
     },
     builder: EasyLoading.init(),
+
   ));
 }
